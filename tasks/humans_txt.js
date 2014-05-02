@@ -23,10 +23,11 @@ module.exports = function( grunt ) {
         if ( this.files.length > 1 ) {
             grunt.verbose.warn('Destination not written because too many destinations were provided.');
         }
-        if ( this.files.length < 1 || !this.files[0].dest) {
+        if (!this.data) {
             grunt.verbose.warn('Destination not written because no destination was provided.');
         } else {
-            dest = this.files[0].dest;
+            // changed to using data since this.files[0].dest was not working.
+            dest = this.data;
         }
 
         if ( !options.content ) {
